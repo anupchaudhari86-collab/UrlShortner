@@ -19,6 +19,11 @@ class UrlManager extends Controller
            $url->original_url = $request->original_url;
            $url->short_code = $shortCode;
            $url->save();
+       } else {
+            return response()->json([
+             'short_url' => url('/'). '/'.$url['short_code']
+           ]);
+
        }
 
        return response()->json([
